@@ -1,0 +1,9 @@
+---
+
+rbenv_install_path: $HOME/.rbenv
+rbenv_profile_path: $HOME/.bash_profile
+rbenv_version: HEAD
+rbenv_plugins:
+  - name: ruby-build
+    repo_url: https://github.com/rbenv/ruby-build.git
+

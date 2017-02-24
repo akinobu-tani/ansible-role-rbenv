@@ -1,0 +1,33 @@
+---
+
+- name: install git
+  yum: name=git
+
+- name: check out rbenv
+  git:
+    repo: "{{rbenv_repo_url}}"
+    dest: "{{rbenv_install_path}}"
+    version: "{{rbenv_version}}"
+
+- name: check out plugins
+  git:
+    repo: "{{item.repo_url}}"
+    dest: "{{rbenv_install_path}}/plugins/{{item.name}}"
+    version: "{{item.version | default('HEAD')}}"
+  with_items: "{{rbenv_plugins}}"
+
+- name: configure PATH
+  blockinfile:
+    dest: "{{rbenv_profile_path}}"
+    marker: "# {mark} ANSIBLE RBENV BLOCK"
+    block: |
+      if [ -d "{{rbenv_install_path}}" ]; then
+        export RBENV_ROOT={{rbenv_install_path}}
+        export PATH=$RBENV_ROOT/bin:$PATH
+        eval "$(rbenv init -)"
+      fi
+#   register: result
+
+# - name: initialize rbenv
+#   command: "{{rbenv_install_path}}/bin/rbenv init -"
+#   when: result.changed
