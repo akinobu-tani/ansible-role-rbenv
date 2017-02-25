@@ -26,8 +26,3 @@
         export PATH=$RBENV_ROOT/bin:$PATH
         eval "$(rbenv init -)"
       fi
-#   register: result
-
-# - name: initialize rbenv
-#   command: "{{rbenv_install_path}}/bin/rbenv init -"
-#   when: result.changed
