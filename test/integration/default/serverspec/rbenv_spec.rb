@@ -1,6 +1,6 @@
-require 'serverspec'
+require '/tmp/kitchen/spec/spec_helper.rb'
 
-set :backend, :exec
+set :disable_sudo, true
 
 describe command('$SHELL -lc "rbenv --version"') do
   its(:exit_status) { should eq 0 }
