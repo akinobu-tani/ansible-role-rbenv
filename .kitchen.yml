@@ -5,6 +5,7 @@ driver:
 provisioner:
   name: ansible_playbook
   hosts: localhost
+  ansible_connection: ssh
   ansible_sudo: false
   ansible_verbose: true
   ansible_verbosity: 3
