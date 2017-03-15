@@ -10,9 +10,14 @@ provisioner:
   ansible_verbose: true
   ansible_verbosity: 3
   require_chef_for_busser: false
+  enable_yum_epel: true
 
 platforms:
-  - name: centos-7.3
+  - name: centos-7
+  - name: amazonlinux-2016.09
+    driver_config:
+      image: amazonlinux:2016.09
+      platform: centos
 
 verifier:
   name: serverspec
