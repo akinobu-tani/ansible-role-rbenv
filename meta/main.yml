@@ -12,7 +12,7 @@ galaxy_info:
         - 7
     - name: Amazon
       versions:
-        - 2016.09
+        - 2017.03
 
   galaxy_tags: []
 

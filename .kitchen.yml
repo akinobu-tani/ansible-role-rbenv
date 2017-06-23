@@ -14,9 +14,9 @@ provisioner:
 
 platforms:
   - name: centos-7
-  - name: amazonlinux-2016.09
+  - name: amazonlinux-2017.03
     driver_config:
-      image: amazonlinux:2016.09
+      image: amazonlinux:2017.03
       platform: centos
 
 verifier:
